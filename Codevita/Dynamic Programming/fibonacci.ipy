@@ -1,0 +1,32 @@
+#%% Importing functions
+from __future__ import print_function
+# -*- coding: utf-8 -*-
+import math
+
+"""
+Created on Tue Sep 15 18:26:38 2020
+
+@author: gokul
+"""
+#%% The recursive function
+def fib_recursive(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib_recursive(n-1) + fib_recursive(n-2)
+
+#%% Test
+print([fib_recursive(i) for i in range(20)])
+#%% Time Recursive
+%timeit fib_recursive(34)
+#%% Iterative
+def fib_iterative(n):
+    a, b = 0, 1
+    while n > 0:
+        a, b = b, a + b
+        n -= 1
+    return a
+
+%timeit fib_iterative(34)
